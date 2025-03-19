@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member index{% endblock %}
+
+{% block body %}
+    <h1>Member index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>JoinedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.joinedAt ? member.joinedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_member_show', {'id': member.id}) }}">show</a>
+                    <a href="{{ path('app_member_edit', {'id': member.id}) }}">edit</a>
+
+                    <a href="{{ path('app_member_join_event', {'id': member.id, 'eventId': 1}) }}" class="btn btn-primary btn-sm mt-2">
+
+                    Join Event
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_member_new') }}">Create new</a>
+    
+{% endblock %}

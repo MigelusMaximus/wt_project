@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Runners for {{ event.title }}{% endblock %}
+
+{% block body %}
+    <h1>Runners for "{{ event.title }}"</h1>
+
+    {% if members|length > 0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Joined At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td>{{ member.id }}</td>
+                        <td>{{ member.name }}</td>
+                        <td>{{ member.email }}</td>
+                        <td>{{ member.joinedAt ? member.joinedAt|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">No runners registered for this competition yet.</div>
+    {% endif %}
+{% endblock %}

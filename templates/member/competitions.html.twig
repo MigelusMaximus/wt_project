@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ member.name }} – Competitions{% endblock %}
+
+{% block body %}
+    <h1>{{ member.name }} – Registered Competitions</h1>
+
+    {% if member.events|length > 0 %}
+        <h3>Already Registered In:</h3>
+        <ul>
+            {% for event in member.events %}
+                <li>{{ event.title }} — {{ event.date|date('Y-m-d') }} @ {{ event.location }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>This member is not yet registered in any competitions.</p>
+    {% endif %}
+
+    <hr>
+
+    <h3>Register to New Competition:</h3>
+    <form method="post">
+        <div class="mb-3">
+            <select name="event_id" class="form-select" required>
+                {% for event in availableEvents %}
+                    {% if event not in member.events %}
+                        <option value="{{ event.id }}">{{ event.title }} — {{ event.date|date('Y-m-d') }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        {% if app.user %}
+        <button class="btn btn-success">Register</button>
+        {% endif %}
+    </form>
+{% endblock %}

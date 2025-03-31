@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member index{% endblock %}
+
+{% block body %}
+    <h1>Member index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>JoinedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.joinedAt ? member.joinedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_member_show', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">show</a>
+                    {% if app.user %}
+                    <a href="{{ path('app_member_edit', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">edit</a>
+                    {% endif %}
+
+                    
+                    
+                     <a href="{{ path('app_member_competitions', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">Competitions</a>
+
+                    
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if app.user %}
+    <a href="{{ path('app_member_new') }}">Create new</a>
+{% endif %}
+    
+{% endblock %}

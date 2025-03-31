@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>WT Project</h1>
+    <p>Tento projekt simuluje databázu bežcov a súťaží</p> 
+    <ul> Technológie použité v projekte:
+        <li>Symfony 6.4</li>
+        <li>PHP 8.2</li>
+        <li>MySQL - databáza</li>
+        <li>Bootstrap 5 - design</li>
+        <li>Composer - správca</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+    </ul>
+    </br>
+    <h3>Databáza</h3>
+    <p>Databáza je dizajnovaná tak, že obsahuje tabuľky pre:
+        <ul>
+            <li>bežcov</li>
+            <li>súťaže</li>
+            <li>prihlásených bežcov na súťaže</li>
+        </ul>
+        <p> Pričom hlavné tabuľky sú bežci a súťaže. Bežci sa môžu registrovať na rôzne súťaže a súťaže môžu mať rôznych bežcov.</p>
+        <p> To teda znamená, že bežci a súťaže majú vzťah M:N. Tento vzťah je realizovaný pomocou tretej tabuľky, ktorá obsahuje ID bežca a ID súťaže.</p>
+    </p>
+    </br>
+    <h3>Dva Stupne Prístupu</h3>
+    <p> V tejto aplikácii máme dva stupne prístupu:
+        <ul>
+            <li>guest</li>
+            <li>admin</li>
+        </ul>
+        <p> Guest má práva len na prezeranie.</p>
+        <p> Admin má práva na pridávanie, úpravu a mazanie bežcov a súťaží, ako aj registrovanie nových admin účtov.</p>
+</br>
+    <h2>Budúcnosť tohoto projektu </h2>
+    <p> Tento projekt je hlavne vo fúnkčnej verzii.</p>
+    <p>Roadmap do budúcnosti je nasledovný:</p>
+    <ul>
+        <li>Pridať nového usera - bežec.</li>
+        <li>Pridať možnosť registrácie bežcov do súťaží.</li>
+        <li>Zjednotenie dizajnu pre celý projekt.</li>
+        <li>Vylepšenie dizajnu pre prehľad projektu a lepšiu navigáciu userov.</li>
+        <li>Upravenie databáz pre bežcov aby lepšie reprezentovali reálny klub, tak isto ako eventov.</li>
+        <li>Pridanie interaktivity projektu.</li>
+        <li>Profesionalizácia dizajnu.</li>
+        <li>Pridanie funkcie pre vyhľadávanie bežcov a súťaží.</li>
+        <li>Pridanie funkcie pre filtrovanie bežcov a súťaží.</li>
+        <li>Pridanie funkcie pre zobrazenie bežcov a súťaží podľa rôznych kritérií.</li>
+        <li>Pridanie Klubov ako fúnkciu projektu.</li>
+        <li>Pridanie role správcu klubu.</li>
+        <li>Práva pre správcu klubu na editovanie, pridávanie bežcov a súťaží.</li>
+        <li>Pridanie funkcie pre zobrazenie bežcov a súťaží podľa klubu.</li>
+        <li>Pridanie hlavnej stránky pre projekt, ktorá bude zobrazovať rôzne novinky a aktualizácie a sútaže.</li>
+        <li>Pridanie systému pre časové obmedzenia, ako napr. na registráciu do súťaže.</li>
+        <li>Nový panel pre aktuálne a nadchadzujúce súťaže.</li>
+        </ul>
+        <p>Po týchto úpravách by projekt bol pripravený na nasadenie do produkcie, v ktorej by mohol prebiehať ešte mnohými úpravami a mohli by sa pridávať nové funkcie.</p>
+{% endblock %}

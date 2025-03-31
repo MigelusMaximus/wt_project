@@ -23,11 +23,11 @@
                 <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ event.location }}</td>
                 <td>
-                    <a href="{{ path('app_event_show', {'id': event.id}) }}" class="btn btn-sm btn-info mt-2">show</a>
+                    <a href="{{ path('app_event_show', {'id': event.id}) }}" class="btn btn-sm btn-info mt-2">info</a>
                     {% if app.user %}
                     <a href="{{ path('app_event_edit', {'id': event.id}) }}" class="btn btn-sm btn-info mt-2">edit</a>
                      {% endif %}
-                    <a href="{{ path('app_event_runners', {'id': event.id}) }}" class="btn btn-sm btn-info mt-2">View Runners</a>
+                    <a href="{{ path('app_event_runners', {'id': event.id}) }}" class="btn btn-sm btn-info mt-2">prihlásení</a>
                 </td>
             </tr>
             

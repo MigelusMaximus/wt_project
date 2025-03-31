@@ -3,7 +3,7 @@
 {% block title %}Member index{% endblock %}
 
 {% block body %}
-    <h1>Member index</h1>
+    <h1>Členovia</h1>
 
     <table class="table">
         <thead>
@@ -23,14 +23,14 @@
                 <td>{{ member.email }}</td>
                 <td>{{ member.joinedAt ? member.joinedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_member_show', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">show</a>
+                    <a href="{{ path('app_member_show', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">info</a>
                     {% if app.user %}
                     <a href="{{ path('app_member_edit', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">edit</a>
                     {% endif %}
 
                     
                     
-                     <a href="{{ path('app_member_competitions', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">Competitions</a>
+                     <a href="{{ path('app_member_competitions', {'id': member.id}) }}" class="btn btn-sm btn-info mt-2">preteky</a>
 
                     
                     </a>
